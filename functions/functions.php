@@ -1,11 +1,12 @@
 <?php
 require_once __dir__ .'/../config/dbconfig.php';
 function home($pdo){
-   
-    $q = "SELECT `id`, `title`, `content`, `metadesc`, `metatitle`, `subtitle`, `img` FROM `cms`.`pages` WHERE  `id`=1";
+    
+    $q = "SELECT `id`, `title`, `content`, `metadesc`, `metatitle`, `subtitle`, `img` FROM `cms`.`pages` WHERE  url = '".$_SERVER['REQUEST_URI']."'";
 
     return $pdo->query($q)->fetchAll(PDO::FETCH_ASSOC);
 }
+
 function registerUser($username, $email, $password, $pdo){
     $hashed_password = password_hash($password, PASSWORD_DEFAULT);
     $stmt = $pdo->prepare('INSERT INTO user(username, email, password) VALUES(:username, :email, :password)');

@@ -20,7 +20,7 @@ foreach ($result as $r) {
 if(count($result) == 0){
     echo 'Das hat nicht funktioniert. $result ist leer.';
 } 
-var_dump($_SERVER['REQUEST_URI']);
+
 
 require_once('templates/footer.php');
 echo 'ende';

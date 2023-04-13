@@ -24,8 +24,8 @@
         <?php require_once 'nav.php';?>
         <div class="hero-content">
             <?php 
-            
             $result = home($pdo);
+            
             foreach ($result as $row):?>
             <h1><?php echo $row['title'];?></h1>
             <p><<?php echo $row['subtitle'];?></p>
