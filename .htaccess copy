@@ -1,0 +1,7 @@
+RewriteEngine On
+RewriteRule ^$ index.php?page=start [L]
+RewriteRule ^cms$ index.php?page=cms [L]
+RewriteRule ^marketing$ index.php?page=marketing [L]
+RewriteRule ^crm$ index.php?page=crm [L]
+RewriteRule ^seo$ index.php?page=seo [L]
+RewriteRule ^ueber-das-projekt$ index.php?page=about [L]

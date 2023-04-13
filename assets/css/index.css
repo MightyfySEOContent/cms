@@ -1,0 +1,16 @@
+@import 'header.css';
+@import 'footer.css';
+@import 'nav.css';
+@import 'seo.css';
+@import 'cms.css';
+#main-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-items: center;
+  flex-direction: column;
+}
+#main-header #navbar {
+  display: flex;
+  justify-content: center;
+}/*# sourceMappingURL=index.css.map */
