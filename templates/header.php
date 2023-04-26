@@ -1,13 +1,16 @@
-<?php require_once __dir__ .'/../config/dbconfig.php';
+<?php require_once __dir__ .'/../functions/functions.php';
+ $result = home($pdo);
+ $pageTitle = isset($result[0]['metatitle']) ? $result[0]['metatitle'] : 'Mightyfy Business Suite';
+ $pageDesc = isset($result[0]['metadesc']) ? $result[0]['metadesc'] : 'Eine bessere Business Suite gibt es nicht';
 ?>
 <!DOCTYPE html>
 <html lang="de">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Best CMS</title>
+    <meta name="description" content="<?php echo $pageDesc ?>">
+    <title><?php echo $pageTitle;?></title>
     
     <!-- JQuery -->
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"
@@ -23,10 +26,8 @@
     <header id="main-header">
         <?php require_once 'nav.php';?>
         <div class="hero-content">
-            <?php 
-            $result = home($pdo);
-            
-            foreach ($result as $row):?>
+       
+           <?php foreach ($result as $row):?>
             <h1><?php echo $row['title'];?></h1>
             <p><<?php echo $row['subtitle'];?></p>
             <?php endforeach;?>

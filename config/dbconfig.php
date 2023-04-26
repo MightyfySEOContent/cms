@@ -17,3 +17,5 @@ $emailSearch = $pdo->prepare('SELECT id FROM user WHERE email = ?');
 // Post und Page Requests
 $postResult = $pdo->query($postsSQL)->fetchAll(PDO::FETCH_ASSOC);
 $pagesResult = $pdo->query($pagesSQL)->fetchAll(PDO::FETCH_ASSOC);
+// Bilder
+$img = 'SELECT id, name, path, alt, title FROM bilder';

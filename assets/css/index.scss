@@ -1,26 +1,61 @@
-@import 'header.css';
+/* SCSS HEX */
+$background: #0a0908ff;
+$text: #eae0d5ff;
+$button: #22333bff;
+$shadows: #c6ac8fff;
+$menus: #5e503fff;
+
 @import 'footer.css';
-@import 'nav.css';
 @import 'seo.css';
 @import 'cms.css';
-
-
-
-#main-header{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    align-items: center;
-    flex-direction: column;
-    #navbar{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: ;em
-        .logo {
-          img{
-            width: 150px;
-          }
-        }
-    }
+@import 'editor.css';
+@mixin flex{
+  display: flex;
 }
+@mixin center{
+  justify-content: center;
+  align-items: center;
+}
+@mixin start{
+  justify-content: flex-start;
+}
+@mixin space-between{
+  justify-content: space-between;
+  algn-items: center;
+}
+@mixin end{
+  justify-content: flex-end;
+}
+@mixin flex-center{
+  @include flex();
+  @include center();
+}
+@mixin flex-start{
+  @include flex();
+  @include start();
+}
+@mixin grid{
+  display: grid;
+}
+@mixin responsive{
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+}
+
+
+html{
+  font-size: 20px;
+  color-scheme: dark;
+}
+body{
+background-color: $background;
+min-height: 100vh;
+width: 100vh;
+max-width: 1200px;
+color: $text;
+button{
+  background-color: $button;
+}
+@import 'header.css';
+}
+
+

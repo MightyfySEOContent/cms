@@ -1,0 +1,27 @@
+#main-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+  background: url('https://images.pexels.com/photos/2724664/pexels-photo-2724664.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  #navbar {
+    width: 100%;
+    @include flex();
+    @include space-between();
+    position: fixed;
+    top:0;
+    left:0;
+    right:0;
+    #toggle{
+      padding: 0.5em;
+      background-color: $button;
+    }
+  }
+}

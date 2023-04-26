@@ -21,6 +21,5 @@ if(count($result) == 0){
     echo 'Das hat nicht funktioniert. $result ist leer.';
 } 
 
-
 require_once('templates/footer.php');
 echo 'ende';
