@@ -1,0 +1,89 @@
+/* Variablen zzur allgemeinen Nutzung */
+:root{
+ --primary-color: #80BD9E;
+ --secondary-color: #FF420E;
+ --accent: #F98866;
+ 
+}
+/* ysabeau-100 - latin */
+@font-face {
+    font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: 'Ysabeau';
+    font-style: normal;
+    font-weight: 100;
+    src: url('../fonts/ysabeau-v1-latin-100.eot'); /* IE9 Compat Modes */
+    src: url('../fonts/ysabeau-v1-latin-100.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('../fonts/ysabeau-v1-latin-100.woff2') format('woff2'), /* Super Modern Browsers */
+         url('../fonts/ysabeau-v1-latin-100.woff') format('woff'), /* Modern Browsers */
+         url('../fonts/ysabeau-v1-latin-100.ttf') format('truetype'), /* Safari, Android, iOS */
+         url('../fonts/ysabeau-v1-latin-100.svg#Ysabeau') format('svg'); /* Legacy iOS */
+  }
+  /* ysabeau-200 - latin */
+  @font-face {
+    font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: 'Ysabeau';
+    font-style: normal;
+    font-weight: 200;
+    src: url('../fonts/ysabeau-v1-latin-200.eot'); /* IE9 Compat Modes */
+    src: url('../fonts/ysabeau-v1-latin-200.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('../fonts/ysabeau-v1-latin-200.woff2') format('woff2'), /* Super Modern Browsers */
+         url('../fonts/ysabeau-v1-latin-200.woff') format('woff'), /* Modern Browsers */
+         url('../fonts/ysabeau-v1-latin-200.ttf') format('truetype'), /* Safari, Android, iOS */
+         url('../fonts/ysabeau-v1-latin-200.svg#Ysabeau') format('svg'); /* Legacy iOS */
+  }
+  /* ysabeau-regular - latin */
+  @font-face {
+    font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: 'Ysabeau';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../fonts/ysabeau-v1-latin-regular.eot'); /* IE9 Compat Modes */
+    src: url('../fonts/ysabeau-v1-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('../fonts/ysabeau-v1-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+         url('../fonts/ysabeau-v1-latin-regular.woff') format('woff'), /* Modern Browsers */
+         url('../fonts/ysabeau-v1-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+         url('../fonts/ysabeau-v1-latin-regular.svg#Ysabeau') format('svg'); /* Legacy iOS */
+  }
+  /* ysabeau-500 - latin */
+  @font-face {
+    font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: 'Ysabeau';
+    font-style: normal;
+    font-weight: 500;
+    src: url('../fonts/ysabeau-v1-latin-500.eot'); /* IE9 Compat Modes */
+    src: url('../fonts/ysabeau-v1-latin-500.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('../fonts/ysabeau-v1-latin-500.woff2') format('woff2'), /* Super Modern Browsers */
+         url('../fonts/ysabeau-v1-latin-500.woff') format('woff'), /* Modern Browsers */
+         url('../fonts/ysabeau-v1-latin-500.ttf') format('truetype'), /* Safari, Android, iOS */
+         url('../fonts/ysabeau-v1-latin-500.svg#Ysabeau') format('svg'); /* Legacy iOS */
+  }
+  /* ysabeau-600 - latin */
+  @font-face {
+    font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: 'Ysabeau';
+    font-style: normal;
+    font-weight: 600;
+    src: url('../fonts/ysabeau-v1-latin-600.eot'); /* IE9 Compat Modes */
+    src: url('../fonts/ysabeau-v1-latin-600.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('../fonts/ysabeau-v1-latin-600.woff2') format('woff2'), /* Super Modern Browsers */
+         url('../fonts/ysabeau-v1-latin-600.woff') format('woff'), /* Modern Browsers */
+         url('../fonts/ysabeau-v1-latin-600.ttf') format('truetype'), /* Safari, Android, iOS */
+         url('../fonts/ysabeau-v1-latin-600.svg#Ysabeau') format('svg'); /* Legacy iOS */
+  }
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html{
+    background-color: var(--primary-color);
+    font-family: 'Ysabeau', sans-serif;
+    font-size: 20px;
+    color: var(--secondary-color);
+}
+body{
+    min-height: 100vh;
+width: 100vw;
+max-width: 60em;
+display: flex;
+}
