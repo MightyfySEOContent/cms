@@ -1,21 +1,24 @@
 <?php
-define('MAIN_CONTENT', '/content.php');
-function createUrl($pdo){
+require_once __DIR__ . '/../config/dbconfig.php';
+require_once __dir__.'/content-functions.php';
+function createUrl($pdo)
+{
     $q = "SELECT `id`, `title`, `content`, `img`, `phpfile`, `url` FROM `cms`.`pages` WHERE  `url`=:url";
     $stmt = $pdo->prepare($q);
     $stmt->execute([':url' => parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH)]);
     $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    
+
     foreach ($result as $r) {
-        require_once __DIR__ . '../content' . $r['phpfile'];
+        require_once __DIR__ . '/../' . $r['phpfile'];
     }
-    }
-    function scanDirectory(){
-        $dir = 'modules';
-        $files = scandir($dir);
-        return $files;
-        
-    }
+}
+function scanDirectory()
+{
+    $dir = 'modules';
+    $files = scandir($dir);
+    return $files;
+
+}
 function home($pdo)
 {
 
@@ -26,7 +29,7 @@ function home($pdo)
 // Admin Navigation
 function adminNavigationList($adminNav)
 {
-    
+
     $html = '';
     foreach ($adminNav as $nav) {
         if ($nav['url'] != '/signup' && $nav['url'] != '/login') {
@@ -51,7 +54,7 @@ function generateNavigationList($postResult)
 // Prüfen ob der Nutzer existiert
 function checkUser($pdo)
 {
-    
+    global $pagesResult;
     if (isset($_POST['submit'])) {
 
         $username = $_POST['username'];
@@ -69,13 +72,15 @@ function checkUser($pdo)
             if ($checkPassword == false) {
                 echo 'Falsches Passwort eingegeben.';
             } else {
-                header('location: ../modules/login.php');
+                header('location: ' . $pagesResult[2]['phpfile'] /*/../admin/index.php'*/);
+                session_start();
                 $_SESSION['id'] = $userExists[0]['id'];
             }
 
         }
 
     }
+
 }
 
 
@@ -90,11 +95,12 @@ function userLoggedIn($pdo)
 }
 
 // Nutzer ausloggen 
-function userLogout(){
-    if(isset($_POST['submit'])){
+function userLogout()
+{
+    if (isset($_POST['submit'])) {
         session_destroy();
         header('location: /admin/modules/login');
-    } 
+    }
 }
 // Nutzer anlegen
 function registerUser($username, $email, $password, $pdo)

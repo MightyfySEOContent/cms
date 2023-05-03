@@ -11,17 +11,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="<?php echo $pageDesc ?>">
     <title><?php echo $pageTitle;?></title>
+   
+   
+   
     
-    <!-- Tiny MCE -->
-    <script src="https://cdn.tiny.cloud/1/2ubdbt8her07k2xllv8c057teiehb3ma33aqe94ffhom39u7/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
-    <!-- JQuery -->
-    <script src="https://code.jquery.com/jquery-3.6.4.min.js"
-        integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
-    <!-- Font Awesome -->
-    <script src="https://kit.fontawesome.com/5f286a84ec.js" crossorigin="anonymous"></script>
    <!-- css -->
-   <link rel="stylesheet" href="includes/css/style.css">
-
+   <?php foreach($styleScript as $sr):?>
+   <link rel="stylesheet" href="<?php echo $sr['styles'];?>">
+<?php endforeach;?>
 </head>
 
 <body>
@@ -33,7 +30,7 @@
        
            <?php foreach ($result as $row):?>
             <h1><?php echo $row['title'];?></h1>
-            <p><<?php echo $row['subtitle'];?></p>
+            
             <?php endforeach;?>
         </div>
         <?php if ($_SERVER['REQUEST_URI'] == '/home'):?> 

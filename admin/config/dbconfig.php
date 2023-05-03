@@ -9,7 +9,7 @@ $pdo = new PDO($dsn, $username, $password);
 
 // Abfrage Datenbank für Templates
 $pagesSQL = 'SELECT id, title, content, phpfile, url FROM pages';
-$userContentSQL = 'SELECT  `id`,  `title`,  `metadesc`,  `metatitle`,  `subtitle`,  `img`, LEFT(`url`, 256),  `phpfile`,  `language`,  `article`,  `page`, LEFT(`content`, 256),  `public`,  `draft`,  `cornerstone`,  `alt` FROM `cms`.`content`';
+$userContentSQL = 'SELECT `id`, `title`, `metadesc`, `metatitle`, `subtitle`, `img`, `url`, `phpfile`, `language`, `article`, `page`, `content`, `public`, `draft`, `cornerstone`, `alt` FROM `cms`.`content`';
 $userSQL = 'SELECT id, username, password, email, adress, phone, postleitzahl, hausnummer, firmenname FROM user';
 $adminNavigation = "SELECT id, title, content, img, url, phpfile FROM pages WHERE url LIKE '/admin/modules/%'";
 // Register
@@ -26,8 +26,13 @@ $stmt->execute();
 $medien = $stmt->fetchAll(PDO::FETCH_ASSOC);
 // Dateien hochladen
 $stmt = $pdo->prepare('INSERT INTO medien(name, path, alt, title, bilder, videos, dokument) VALUES(?,?,?,?,?,?,?)');
-
-
+// select Stylesheets, Scripts and Fonts
+$selectSQL = 'SELECT styles, script, fonts FROM additional';
+$selectStmt = $pdo->prepare($selectSQL);
+$selectStmt->execute();
+$styleScript = $selectStmt->fetchAll(PDO::FETCH_ASSOC);
+$selectStmt->execute();
+$styleScript = $selectStmt->fetchAll(PDO::FETCH_ASSOC);
 
 
 $q = "SELECT `id`, `title`, `content`, `img`, `phpfile`, `url` FROM `cms`.`pages` WHERE  `url`=:url";

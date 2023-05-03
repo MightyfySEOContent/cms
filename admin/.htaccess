@@ -1,7 +1,6 @@
 RewriteEngine on
 
-RewriteBase /
-# Alle URLs ändern, die mit admin beginnen
+RewriteBase /admin
 
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-f

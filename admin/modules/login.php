@@ -7,5 +7,19 @@
 </form> 
 
 <?php
+
+
+// if (function_exists('checkUser()')) {
+//     // die Funktion existiert, führe sie aus
+//     checkUser($pdo);
+//     echo $_SESSION['id'];}
+// //   } else {
+// //     // die Funktion existiert nicht, handle den Fehler
+// //     echo 'Fehler: Funktion nicht verfügbar.';
+   
+// //   }
+print_r(checkUser($pdo));
 checkUser($pdo);
+
+
 ?>
