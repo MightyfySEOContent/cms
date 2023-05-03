@@ -1,6 +1,4 @@
-<?php
-// Check if user is logged in
-?>
+
 <aside>
     <ul>
         <li><a href="/pages">Seiten</a></li>

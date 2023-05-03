@@ -13,11 +13,8 @@
             </ul>
             <div class="user_actions">
                 <form action="" method="post">
-                <button type="submit" name="submit">Abmelden</button>
-                <?php if(isset($_POST['submit'])){
-                    session_destroy();
-                    header('location: /admin/modules/login');
-                } ?>
+                <button type="submit" name="submit">Abmelden</button> 
+                <?php userLogout();?> 
                 </form>
             </div>
         </div>

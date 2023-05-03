@@ -69,7 +69,7 @@ function checkUser($pdo)
             if ($checkPassword == false) {
                 echo 'Falsches Passwort eingegeben.';
             } else {
-                header('location: /account');
+                header('location: ../modules/login.php');
                 $_SESSION['id'] = $userExists[0]['id'];
             }
 
@@ -87,6 +87,14 @@ function userLoggedIn($pdo)
         header('location: /login');
     }
 
+}
+
+// Nutzer ausloggen 
+function userLogout(){
+    if(isset($_POST['submit'])){
+        session_destroy();
+        header('location: /admin/modules/login');
+    } 
 }
 // Nutzer anlegen
 function registerUser($username, $email, $password, $pdo)

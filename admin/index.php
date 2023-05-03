@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-
+var_dump(scandir('admin'));
 $_SESSION['url'] = $_SERVER['REQUEST_URI'];
 
 require_once __DIR__ . '/config/debug.php';
