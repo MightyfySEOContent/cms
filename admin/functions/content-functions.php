@@ -21,21 +21,20 @@ function showDraftPages($pdo)
 }
 function addPersonalisation($pdo)
 {
-    $insertSQL = 'INSERT INTO `additional`(styles, script, fonts, scriptcdn, stylecdn, fontcdn) VALUES(?,?,?,?,?,?)';
-    if (isset($_POST['add_style'])) {
-        $werte = [
-            $_POST['stylesheet'],
-            $_POST['javascript'],
-            $_POST['fonts'],
-            $_POST['cdn-style'],
-            $_POST['cdn-script'],
-            $_POST['cdn-font']
-        ];
+    if (isset($_POST['add_style']) && !empty($_POST['value'])) {
+        
+        var_dump($_POST['value']);
+        $insertSQL = 'INSERT INTO `additional`(type, value) VALUES(?,?)';
         $execute = $pdo->prepare($insertSQL);
-        $execute->execute($werte);
-        $stmt = $pdo->prepare('SELECT styles, script, fonts, scriptcdn, stylecdn, fontcdn FROM additional');
+        $execute->execute([$_POST['type'], $_POST['value']]);
+        print_r($_POST);
+        
+        $stmt = $pdo->prepare('SELECT type, value FROM additional');
         $stmt->execute();
-
-
+        echo 'Das hat funktioniert';
+        
+    } else{
+        echo 'Das hat nicht geklappt';
     }
+
 }

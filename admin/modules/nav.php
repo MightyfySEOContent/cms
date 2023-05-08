@@ -1,10 +1,14 @@
 <nav id="navbar">
+    <?php
+
+    #print_r($_SERVER);
+    ?>
     <div class="menu-wrapper">
         <div class="menu">
             <ul class="main-menu">
                 <?php if (isset($_SESSION['id'])): ?>
                     <?php foreach($pagesResult as $row):?>
-                    <li><a href="<?php echo $row['url']?>"><?php echo $row['title'];?></a></li>
+                    <li><a href="<?php echo $baseurl;?>/admin/index.php?page=<?php echo $row['title'];?>"><?php echo $row['title'];?></a></li>
 
                 <?php endforeach; endif; ?>
             </ul>

@@ -1,7 +1,10 @@
 <?php
- $result = home($pdo);
+
+$result = home($pdo);
  $pageTitle = isset($result[0]['metatitle']) ? $result[0]['metatitle'] : 'Mightyfy Business Suite';
  $pageDesc = isset($result[0]['metadesc']) ? $result[0]['metadesc'] : 'Eine bessere Business Suite gibt es nicht';
+ 
+
 ?>
 <!DOCTYPE html>
 <html lang="de">
@@ -11,14 +14,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="<?php echo $pageDesc ?>">
     <title><?php echo $pageTitle;?></title>
-   
-   
-   
+  <!-- css -->
+<?php if($styleScript[0]['type'] == 'css'){?>
     
-   <!-- css -->
-   <?php foreach($styleScript as $sr):?>
-   <link rel="stylesheet" href="<?php echo $sr['styles'];?>">
-<?php endforeach;?>
+   <?php foreach($styleScript as $sr) {?>
+    <link rel="stylesheet" href="<?php echo $sr['value'];?>">
+<?php } 
+}?>
+<?php if($styleScript[0]['type'] == 'cdn'){?>
+    
+    <?php foreach($styleScript as  $sr){?>
+        <?php echo $sr['value'];}?>
+        <?php }?>
 </head>
 
 <body>

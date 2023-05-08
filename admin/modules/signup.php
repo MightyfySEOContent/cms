@@ -9,7 +9,7 @@
 </div>
 
 <!-- <?php
-
+echo $xyr3;
 if(isset($_POST['absenden'])){
     $username = $_POST['username'];
     $password = $_POST['password'];

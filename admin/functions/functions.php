@@ -1,6 +1,6 @@
 <?php
 require_once __DIR__ . '/../config/dbconfig.php';
-require_once __dir__.'/content-functions.php';
+require_once __DIR__ . '/content-functions.php';
 function createUrl($pdo)
 {
     $q = "SELECT `id`, `title`, `content`, `img`, `phpfile`, `url` FROM `cms`.`pages` WHERE  `url`=:url";
@@ -9,15 +9,12 @@ function createUrl($pdo)
     $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
     foreach ($result as $r) {
-        require_once __DIR__ . '/../' . $r['phpfile'];
+        if($r['phpfile'] !== 'index.php'){
+        require_once __DIR__ . '/../modules/' . $r['phpfile'];
+    } else{
+        require_once __dir__ . '/../index.php';
     }
-}
-function scanDirectory()
-{
-    $dir = 'modules';
-    $files = scandir($dir);
-    return $files;
-
+    }
 }
 function home($pdo)
 {

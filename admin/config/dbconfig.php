@@ -1,4 +1,5 @@
 <?php
+$baseurl = '';
 $username = 'root';
 $password = '';
 $dsn = 'mysql:host=localhost;dbname=cms';
@@ -27,10 +28,8 @@ $medien = $stmt->fetchAll(PDO::FETCH_ASSOC);
 // Dateien hochladen
 $stmt = $pdo->prepare('INSERT INTO medien(name, path, alt, title, bilder, videos, dokument) VALUES(?,?,?,?,?,?,?)');
 // select Stylesheets, Scripts and Fonts
-$selectSQL = 'SELECT styles, script, fonts FROM additional';
+$selectSQL = 'SELECT id, type, value FROM additional';
 $selectStmt = $pdo->prepare($selectSQL);
-$selectStmt->execute();
-$styleScript = $selectStmt->fetchAll(PDO::FETCH_ASSOC);
 $selectStmt->execute();
 $styleScript = $selectStmt->fetchAll(PDO::FETCH_ASSOC);
 
